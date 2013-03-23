@@ -1,49 +1,51 @@
 package org.matehackers.com;
 
+import java.util.Date;
+import java.util.Timer;
+
+import android.content.Context;
+import android.widget.Toast;
+
 public class PostManager {
 
 	private final int STATE_NOT_POSTING = 0;
-	private final int STATE_POSTING = 0;
+	private final int STATE_POSTING = 1;
 	
-	private static PostManager _instance;
 	private int _state;
 	private int _timeBetweenPosts;
-	private AutoMateAbertoHttpPoster _poster;
+	private MateTimerTask _task;
+	private Timer _timer;
+	private static Context _context;
 	
-	static PostManager getInstance() {
-		if (_instance == null) {
-			_instance  = new PostManager();
-		}
-		return _instance;
-	}
-	
-	private PostManager() { 
+	public PostManager(Context context, Boolean allowPosting) { 
 		_state =  STATE_NOT_POSTING; 
-		_poster = new AutoMateAbertoHttpPoster();
+		_task = new MateTimerTask(context, allowPosting);
 	}
 	
-	public void BeginPosting(int timeBetweenPosts) {
-		if (isPosting()) 
-			updatePostingTime(timeBetweenPosts);
-		else
-			beginTimedPosting(timeBetweenPosts);
+	public boolean BeginPosting(int timeBetweenPosts) {
+		Timer timer = new Timer();
+		timer.scheduleAtFixedRate(_task, new Date(), _timeBetweenPosts * 1000);
+		Toast.makeText(_context, "Posting", Toast.LENGTH_LONG).show();
+		_state = STATE_POSTING;
+		return true;
 	}
 
-	private void beginTimedPosting(int timeBetweenPosts) {
-		
-				
-	}
-
-	private void updatePostingTime(int timeBetweenPosts) {
+	public void updatePostingTime(int timeBetweenPosts) {
 		_timeBetweenPosts = timeBetweenPosts;		
 	}
 
-
-	private boolean isPosting() {
-		return false;
+	public boolean isPosting() {
+		return _state == STATE_POSTING;
 	}
 
-	
-	
-	
+	public boolean EndPosting() {
+		_timer.cancel();
+		_state = STATE_NOT_POSTING;
+		Toast.makeText(_context, "Stopped Posting", Toast.LENGTH_LONG).show();
+		return true;
+	}
+
+	public void setAllowPosting(Boolean allowPosting) {
+		_task.setAllowPosting(allowPosting);
+	}	
 }

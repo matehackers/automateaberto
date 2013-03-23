@@ -26,7 +26,9 @@ public class ServicePoster extends IntentService {
 	private Runnable _message = new Runnable() {
 		@Override
 		public void run() {
-			Toast.makeText(ServicePoster.this, C.MSG_ARRIVAL, Toast.LENGTH_LONG).show();			
+			Toast.makeText(ServicePoster.this, C.MSG_ARRIVAL, Toast.LENGTH_LONG).show();
+			AutoMateAbertoHttpPoster poster = new AutoMateAbertoHttpPoster(ServicePoster.this);
+			poster.post();
 		}
 	};
 	
@@ -40,4 +42,5 @@ public class ServicePoster extends IntentService {
 	protected void onHandleIntent(Intent intent) {
 		_toastHandler.post(_message);
 	}
+	
 }

@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Automateaberto</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="menu_settings">Settings</string>
-    <string name="our_name">Matehackers</string>
-
+    <string name="us">Matehackers</string>
+    <string name="menu_post">Post</string>
+    <string name="menu_config">Configurar</string>
+    <string name="prefs_category_title_automatic">Automático</string>
+    <string name="prefs_autopost">Auto postar o checkin</string>
+    <string name="prefs_macaddress">Mac address do device</string>
+    <string name="prefs_category_title_general">Geral</string>
+    <string name="prefs_marcadores_default">4C:17:EB:DD:60:21</string>
+    <string name="prefs_title">Configurações</string>
+    <string name="prefs_time_interval">Intervalo de tempo entre posts</string>
+    <string name="prefs_time_interval_summary">Dado em minutos</string>
+    <string name="key_prefs_time_interval">time_interval</string>
+    <string name="key_prefs_autopost">autopost</string>
+    <string name="key_prefs_macardores">marcadores</string>
+    <string name="missao">Disponibilizar à comunidade um espaço livre para o desenvolvimento de projetos na área de tecnologia, além de oferecer cursos, palestras e outras atividades relacionadas ao assunto, possibilitando a troca de conhecimento entre os frequentadores.</string>
+	<string name="missao_titulo">Missão</string>
 </resources>
