@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" android:title="@string/prefs_title">
     <PreferenceCategory android:title="@string/prefs_category_title_general">
+        <EditTextPreference android:key="@string/key_prefs_user" android:title="@string/prefs_user"/>
         
         
-    <EditTextPreference android:title="@string/prefs_macaddress" android:persistent="true" android:defaultValue="@string/prefs_marcadores_default" android:key="@string/key_prefs_macardores"/></PreferenceCategory>
+    </PreferenceCategory>
     <PreferenceCategory 
-        android:title="@string/prefs_category_title_automatic"><CheckBoxPreference android:title="@string/prefs_autopost" android:persistent="true" android:key="@string/key_prefs_autopost"/><EditTextPreference android:title="@string/prefs_time_interval" android:summary="@string/prefs_time_interval_summary" android:defaultValue="@integer/prefs_time_interval_default" android:persistent="true" android:key="@string/key_prefs_time_interval"/>
+        android:title="@string/prefs_category_title_automatic"><CheckBoxPreference android:title="@string/prefs_autopost" android:persistent="true" android:key="@string/key_prefs_autopost"/><EditTextPreference android:title="@string/prefs_macaddress" android:persistent="true" android:defaultValue="@string/prefs_marcadores_default" android:key="@string/key_prefs_macaddress" /><EditTextPreference android:title="@string/prefs_time_interval" android:summary="@string/prefs_time_interval_summary" android:defaultValue="@integer/prefs_time_interval_default" android:persistent="true" android:key="@string/key_prefs_time_interval" android:shouldDisableView="true"/>
         
     </PreferenceCategory>
     
